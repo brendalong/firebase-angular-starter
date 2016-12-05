@@ -8,13 +8,38 @@
 * Optional: upload some sample data via a json file.
 
 ## Setup Angular Files
-* Create project with lib folder. Install necessary node_modules. Be sure to include Firebase.
-* Create a FBCreds file with your database details: aipKey, authDomain, databaseURL.
-* 
+* Create folder structure:
+```
+- app
+    |
+    |- values
+    |- factories
+    |- controllers
+    |- app.js
+    |
+- css
+- lib
+    |
+    | - bower_components
+    | - node_modules
+    | - bower.json
+    | - Gruntfile.js
+    | - package.json
+    |
+- partials
+- sass
+- index.html
 
+```
 
+* Within `lib` folder, install necessary `node_modules` (run `package.json` and `bower.json`). Be sure to include Firebase.
+* Within `values`, create a `FBCreds.js` file with your database details: aipKey, authDomain, databaseURL.
+* Within `app.js`, use run to grap database details from FBCreds.
+* Be sure to add js files to index.html (third party and app specific)
+* Add `ng-app="the-name-of-your-app"` to `index.html`
 
-
-apiKey: "AIzaSyDpxPoE_TSG50QaqW_C3-8PAAz6_ruWCbE",
-authDomain: "fir-withangular.firebaseapp.com",
-databaseURL: "https://fir-withangular.firebaseio.com",
+## See it in Action
+* Add routing to `index.html`
+    * For each route, create a corresponding controller
+* Create `navbar.html` partial and add a login button.
+* Create `NavCtrl`

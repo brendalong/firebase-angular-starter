@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firebase and Angular Starter Project</title>
+	<link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body ng-app="CRUDApp">
+	<h1>The journey to CRUD</h1>
+	<!-- Remember quotes in quotes -->
+    <div ng-include="'partials/navbar.html'"></div>
+
+    <!-- get ready for routing -->
+    <div class="col-xs-12" ng-view></div>
+
+
+	<!-- third party js -->
+	<script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
+
+	<!-- app specific js -->
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/values/fb-creds.js"></script>
+	<script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
+	<script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+
+</body>
+</html>
