@@ -4,11 +4,13 @@ var app = angular.module("CRUDApp", ["ngRoute"]);
 
 //used to authenticate user when navigating to other views
 let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
+  // console.log("running isAuth");
 	AuthFactory.isAuthenticated()
 	.then ( (userExists) => {
 		if (userExists){
 			resolve();
 		}else {
+      console.log("this should reject");
 			reject();
 		}
 	});
@@ -25,9 +27,9 @@ app.config(function($routeProvider) {
       templateUrl: 'partials/login.html',
       controller: "LoginCtrl"
     }).
-    when('/items/list', {
-      templateUrl: 'partials/item-list.html',
-      controller: 'ItemListCtrl',
+    when('/login-details', {
+      templateUrl: 'partials/user-details.html',
+      controller: 'UserDetailsCtrl',
       resolve: {isAuth}
     }).
     otherwise('/');
@@ -43,5 +45,3 @@ app.run(($location, FBCreds) => {
 	};
 	firebase.initializeApp(authConfig);
 });
-
-console.log("is auth", isAuth);

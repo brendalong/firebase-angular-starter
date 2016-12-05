@@ -1,6 +1,9 @@
 <nav class="navbar navbar-default" ng-controller="NavCtrl">
 	<ul>
-		<li ng-show="isAuth()"><a ng-href="#/login">Login</a></li>
+		<!-- <li ng-show="isAuth()"><a ng-href="#/login">Login</a></li> -->
+
 		<li ng-show="!$parent.isLoggedIn"><a ng-href="#/login">Login 2</a></li>
+		<li ng-model="isAuth">Show me {{isAuth}}</li>
+		<li ng-show="isAuth"><a ng-click="logoutUser()">Logout</a></li>
 	</ul>
 </nav>
