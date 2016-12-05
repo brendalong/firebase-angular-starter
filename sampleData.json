@@ -1,0 +1,27 @@
+{
+  "items" : [ {
+    "assignedTo" : "Greg",
+    "dependencies" : "sunshine, clippers, hat, water, headphones",
+    "dueDate" : "1/5/17",
+    "isCompleted" : false,
+    "location" : "Joe's house",
+    "task" : "mow the lawn",
+    "urgency" : "low"
+  }, {
+    "assignedTo" : "Brenda",
+    "dependencies" : "wifi, tissues, vodka",
+    "dueDate" : "12/5/17",
+    "isCompleted" : false,
+    "location" : "NSS",
+    "task" : "grade quizzes",
+    "urgency" : "high"
+  }, {
+    "assignedTo" : "Joe",
+    "dependencies" : "hammock, silence",
+    "dueDate" : "5/21/16",
+    "isCompleted" : false,
+    "location" : "Porch of lakefront cabin",
+    "task" : "take a nap",
+    "urgency" : "medium"
+  } ]
+}
