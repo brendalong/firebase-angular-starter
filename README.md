@@ -1,0 +1,1 @@
+# Starter file for using Firebase with Angular and user login
