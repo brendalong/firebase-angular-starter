@@ -2,6 +2,7 @@
 
 var app = angular.module("CRUDApp", ["ngRoute"]);
 
+//used to authenticate user when navigating to other views
 let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
 	AuthFactory.isAuthenticated()
 	.then ( (userExists) => {
@@ -11,6 +12,25 @@ let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
 			reject();
 		}
 	});
+});
+
+//setup routing to other views
+app.config(function($routeProvider) {
+  $routeProvider.
+    when('/', {
+      templateUrl: 'partials/login.html',
+      controller: "LoginCtrl"
+    }).
+    when('/login', {
+      templateUrl: 'partials/login.html',
+      controller: "LoginCtrl"
+    }).
+    when('/items/list', {
+      templateUrl: 'partials/item-list.html',
+      controller: 'ItemListCtrl',
+      resolve: {isAuth}
+    }).
+    otherwise('/');
 });
 
 
