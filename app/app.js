@@ -7,10 +7,12 @@ let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
   // console.log("running isAuth");
 	AuthFactory.isAuthenticated()
 	.then ( (userExists) => {
+    console.log("userExists", userExists);
 		if (userExists){
+      console.log("Authenticated, go ahead.");
 			resolve();
 		}else {
-      console.log("this should reject");
+      console.log("Authentication rejected, go away.");
 			reject();
 		}
 	});
@@ -21,11 +23,11 @@ app.config(function($routeProvider) {
   $routeProvider.
     when('/', {
       templateUrl: 'partials/login.html',
-      controller: "LoginCtrl"
+      controller: "UserCtrl"
     }).
     when('/login', {
       templateUrl: 'partials/login.html',
-      controller: "LoginCtrl"
+      controller: "UserCtrl"
     }).
     when('/login-details', {
       templateUrl: 'partials/user-details.html',

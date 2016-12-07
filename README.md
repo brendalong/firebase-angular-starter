@@ -12,10 +12,10 @@
 ```
 - app
     |
-    |- values
     |- factories
     |- controllers
     |- app.js
+    |- values
     |
 - css
 - lib
@@ -32,14 +32,29 @@
 
 ```
 
+## Follow along and review files
 * Within `lib` folder, install necessary `node_modules` (run `package.json` and `bower.json`). Be sure to include Firebase.
 * Within `values`, create a `FBCreds.js` file with your database details: aipKey, authDomain, databaseURL.
-* Within `app.js`, use run to grap database details from FBCreds.
-* Be sure to add js files to index.html (third party and app specific)
+* Be sure to add js files to `index.html` (third party and app specific)
 * Add `ng-app="the-name-of-your-app"` to `index.html`
 
 ## See it in Action
-* Add routing to `index.html`
-    * For each route, create a corresponding controller
-* Create `navbar.html` partial and add a login button.
-* Create `NavCtrl`
+### app.js
+* Add routing for various views. Each view will have a corresponding controller.
+* Be sure to include `ng-view` in the `index.html`
+* Create `isAuth` to verify user when viewing routes.
+* `app.run` to obtain Firebase credentials.
+
+### Partial: navbar.html & Controller: NavCtrl.js
+* Create `navbar.html` partial. Add login and logout. Use `ng-show` based on value of `isLoggedIn`.
+* Create `NavCtrl`.
+* Use `firebase.auth().onAuthStateChanged` to set `$scope.isLoggedIn` and allow the navbar to display context related links.
+* Login and Logout links will change the view (route).
+* Add search to partial (if needed) and variable in the controller.
+
+### Factory: AuthFactory.js
+
+
+
+
+

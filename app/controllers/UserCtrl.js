@@ -1,12 +1,31 @@
 "use strict";
-// reinsert AuthFactory when written
-app.controller("LoginCtrl", function($scope, $window, AuthFactory, $location){
 
+app.controller("UserCtrl", function($scope, $window, AuthFactory, $location){
+
+	//run these when controller loads
 	$scope.account = {
 		email: "",
 		password: ""
 	};
 
+	let logout = () => {
+		console.log("logout clicked");
+		AuthFactory.logoutUser()
+		.then(function(data){
+			console.log("logged out?", data);
+			$window.location.url = "#/login";
+		}, function(error){
+			console.log("error occured on logout");
+		});
+	};
+
+	//when first loaded, make sure no one is logged in
+	if(AuthFactory.isAuthenticated()){
+		logout();
+	}
+
+
+	//setup functions to be available to the app for register, login email/password, and google
 	$scope.register = () => {
     	console.log("you clicked register");
 	    AuthFactory.createUser({
@@ -14,10 +33,10 @@ app.controller("LoginCtrl", function($scope, $window, AuthFactory, $location){
 	      password: $scope.account.password
 	    })
 	    .then( (userData) => {
-	      console.log("LoginCtrl newUser:", userData );
+	      console.log("UserCtrl newUser:", userData );
 	      $scope.login();
 	    }, (error) => {
-	        console.log(`Error creating user: ${error}`);
+	        console.log("Error creating user:", error);
 	    });
   	};
 
@@ -26,10 +45,10 @@ app.controller("LoginCtrl", function($scope, $window, AuthFactory, $location){
     	AuthFactory
 	    .loginUser($scope.account)
 	    .then( () => {
-	        $scope.isLoggedIn = true;
-	        console.log("LoginCtrl: user is loggedIn", $scope.isLoggedIn );
+	        // $scope.isLoggedIn = true;
+	        // console.log("UserCtrl: user is loggedIn", $scope.isLoggedIn );
 	        // $scope.$apply();
-	        $window.location.href = "#/items/list";
+	        $window.location.href = "#/login-details";
 	    });
 	};
 
@@ -43,7 +62,7 @@ app.controller("LoginCtrl", function($scope, $window, AuthFactory, $location){
 	    	$location.path("/login-details");
 	    	$scope.$apply();
 	  	}).catch(function(error) {
-	    	// Handle Errors here.
+	    	// Handle the Errors.
 	    	console.log("error with google login", error);
 	    	var errorCode = error.code;
 	    	var errorMessage = error.message;
@@ -54,6 +73,5 @@ app.controller("LoginCtrl", function($scope, $window, AuthFactory, $location){
 	    	// ...
 	  	});
 	};
-
 
 });

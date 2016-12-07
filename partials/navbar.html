@@ -1,9 +1,38 @@
 <nav class="navbar navbar-default" ng-controller="NavCtrl">
-	<ul>
-		<!-- <li ng-show="isAuth()"><a ng-href="#/login">Login</a></li> -->
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<!-- add responsive drop down menu -->
+      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        	<span class="sr-only">Toggle navigation</span>
+	        	<span class="icon-bar"></span>
+	        	<span class="icon-bar"></span>
+	        	<span class="icon-bar"></span>
+      		</button>
+      		<a class="navbar-brand">The Journey To CRUD</a>
+      	</div> <!-- end of navbar-header -->
 
-		<li ng-show="!$parent.isLoggedIn"><a ng-href="#/login">Login 2</a></li>
-		<li ng-model="isAuth">Show me {{isAuth}}</li>
-		<li ng-show="isAuth"><a ng-click="logoutUser()">Logout</a></li>
-	</ul>
+    <!-- add a search bar to the nav area -->
+	<div class="col-xs-6 searchBox" ng-show="isLoggedIn">
+	  <div class="input-group">
+	    
+	    <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText.search">
+	    <span class="input-group-btn">
+	      <button class="btn btn-default"><i aria-hidden="true"></i>go</button>
+	    </span>
+	  </div>
+	</div> <!-- end searchbox -->
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+		        <!-- only show based on user login -->
+		        <!-- add links as needed -->
+		        <!-- <li ng-show="isLoggedIn"><a ng-href="#/items/new">New Item</a></li>
+		        <li ng-show="isLoggedIn"><a ng-href="#/items/list">All Items</a></li> -->
+		        <li ng-show="!isLoggedIn"><a ng-href="#/login">Login</a></li>
+		        <li ng-show="isLoggedIn"><a ng-href="#/logout">Logout</a></li>
+
+		    </ul>
+	    </div>
+
+    </div> <!-- end of container-fluid -->
 </nav>

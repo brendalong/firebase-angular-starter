@@ -1,29 +1,21 @@
 "use strict";
 
-app.controller('NavCtrl', function($scope, AuthFactory, $location, $window){
-	$scope.navItems = [
-		{
-			name: 'Login/Register',
-			url: '#/login'
+app.controller('NavCtrl', function($scope, AuthFactory, $window){
+	$scope.isLoggedIn = false;
+
+	firebase.auth().onAuthStateChanged( function(user){
+		if (user) {
+			$scope.isLoggedIn = true;
+			console.log("currentUser logged in", user, $scope.isLoggedIn);
+			$scope.$apply();
+		}else{
+			$scope.isLoggedIn = false;
+			console.log("currentUser logged in", $scope.isLoggedIn);
+			$window.location.href = "#login";
 		}
-	];
-
-	$scope.isAuth = false;
-
-	$scope.checkAuth = AuthFactory.isAuthenticated()
-	.then( (resolve) => {
-		$scope.isAuth = resolve;
 	});
 
-	$scope.logoutUser = () => {
-		console.log("you clicked logout");
-    	AuthFactory.logoutUser()
-    	.then( () => {
-    		$window.location.href = "#/";
-    		$scope.checkAuth();
-    		// $scope.apply();
-    	});
-	};
-
+	//add SearchTermData once everything works
+	// $scope.searchText = SearchTermData;
 
 });
