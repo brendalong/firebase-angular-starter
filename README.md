@@ -52,7 +52,15 @@
 * Login and Logout links will change the view (route).
 * Add search to partial (if needed) and variable in the controller.
 
+### Partial: login.html & Controller: UserCtrl.js
+* Partial displays options for login/registraion with links to functions within the controller.
+* Controller has items it runs automatically and functions that are called as needed.
+* Controller depends on AuthFactory to return promise regarding login/registration.
+
 ### Factory: AuthFactory.js
+
+* Firebase always returns a promise.
+* Once a user registers, the login function runs automatically.
 
 
 
