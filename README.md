@@ -33,7 +33,7 @@
 ```
 
 ## Follow along and review files
-* Within `lib` folder, install necessary `node_modules` (run `package.json` and `bower.json`). Be sure to include Firebase.
+* Within `lib` folder, install necessary `node_modules` (run `package.json` and if necessary `bower.json`). Be sure to include Firebase.
 * Within `values`, create a `FBCreds.js` file with your database details: aipKey, authDomain, databaseURL.
 * Be sure to add js files to `index.html` (third party and app specific)
 * Add `ng-app="the-name-of-your-app"` to `index.html`

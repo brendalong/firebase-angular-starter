@@ -11,6 +11,12 @@
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
     "matchdep": "^0.3.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "bootstrap": "^3.3.7",
+    "firebase": "^3.6.9",
+    "jquery": "^3.1.1"
   }
 }
-
