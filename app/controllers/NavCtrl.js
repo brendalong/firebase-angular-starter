@@ -11,7 +11,7 @@ app.controller('NavCtrl', function($scope, AuthFactory, $window){
 		}else{
 			$scope.isLoggedIn = false;
 			console.log("currentUser logged in", $scope.isLoggedIn);
-			$window.location.href = "#login";
+			$window.location.href = "#/login";
 		}
 	});
 
